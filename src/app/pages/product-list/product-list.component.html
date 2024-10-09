@@ -1,22 +1,23 @@
-<ng-container *ngIf="products.length; else noProducts">
-    <h2>Product List</h2>
-    <ul class="product-list">
-        <li *ngFor="let product of products" class="product-item">
-            <div class="product-image">
-                <img [src]="product.media" [alt]="product.name">
-            </div>
-            <div class="product-details">
-                <h3>{{ product.name }}</h3>
-                <p class="product-description">{{ product.description }}</p>
-                <p class="product-price">{{ product.price }}</p>
-                <button>Add to Cart</button>
-            </div>
-        </li>
-    </ul>
-</ng-container>
-
-<ng-template #noProducts>
-    <div class="empty-container">
-        <p>No products available at the moment.</p>
+<div class="row">
+    <div class="col-12">
+      <div class="page-title-box">
+        <h4 class="page-title">User Groups</h4>
+      </div>
     </div>
-</ng-template>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <!-- The AG Grid component -->
+      <ag-grid-angular class="ag-theme-quartz"
+                       style="height: 100vh; width: 100%;"
+                       [rowData]="rowData"
+                       [context]="context"
+                       [columnDefs]="colDefs"
+                       [suppressRowClickSelection]="true"
+                       [class]="themeClass"
+                       (gridReady)="onGridReady($event)"
+                       [rowSelection]="rowSelection">
+      </ag-grid-angular>
+    </div>
+  </div>
+  
